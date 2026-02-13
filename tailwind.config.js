@@ -1,0 +1,120 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+    content: [
+        "./index.html",
+        "./src/**/*.{js,ts,jsx,tsx}",
+    ],
+    darkMode: 'class',
+    theme: {
+        extend: {
+            colors: {
+                // Google Meet inspired color palette
+                'meet-dark': {
+                    50: '#f5f5f5',
+                    100: '#e8e8e8',
+                    200: '#d1d1d1',
+                    300: '#b0b0b0',
+                    400: '#888888',
+                    500: '#6d6d6d',
+                    600: '#5d5d5d',
+                    700: '#4f4f4f',
+                    800: '#3d3d3d',
+                    900: '#202124',
+                    950: '#121212',
+                },
+                'meet-blue': {
+                    50: '#e8f0fe',
+                    100: '#d2e3fc',
+                    200: '#aecbfa',
+                    300: '#8ab4f8',
+                    400: '#669df6',
+                    500: '#4285f4',
+                    600: '#1a73e8',
+                    700: '#1967d2',
+                    800: '#185abc',
+                    900: '#174ea6',
+                },
+                'meet-green': {
+                    50: '#e6f4ea',
+                    100: '#ceead6',
+                    200: '#a8dab5',
+                    300: '#81c995',
+                    400: '#5bb974',
+                    500: '#34a853',
+                    600: '#1e8e3e',
+                    700: '#188038',
+                    800: '#137333',
+                    900: '#0d652d',
+                },
+                'meet-red': {
+                    50: '#fce8e6',
+                    100: '#fad2cf',
+                    200: '#f6aea9',
+                    300: '#f28b82',
+                    400: '#ee675c',
+                    500: '#ea4335',
+                    600: '#d93025',
+                    700: '#c5221f',
+                    800: '#b31412',
+                    900: '#a50e0e',
+                },
+                'meet-yellow': {
+                    50: '#fef7e0',
+                    100: '#feefc3',
+                    200: '#fdd663',
+                    300: '#fcc934',
+                    400: '#fbbc04',
+                    500: '#f9ab00',
+                    600: '#f29900',
+                    700: '#ea8600',
+                    800: '#e37400',
+                    900: '#dc6200',
+                },
+            },
+            fontFamily: {
+                'sans': ['Google Sans', 'Roboto', 'system-ui', 'sans-serif'],
+            },
+            animation: {
+                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'fade-in': 'fadeIn 0.3s ease-in-out',
+                'slide-up': 'slideUp 0.3s ease-out',
+                'slide-down': 'slideDown 0.3s ease-out',
+                'scale-in': 'scaleIn 0.2s ease-out',
+                'glow': 'glow 2s ease-in-out infinite alternate',
+            },
+            keyframes: {
+                fadeIn: {
+                    '0%': { opacity: '0' },
+                    '100%': { opacity: '1' },
+                },
+                slideUp: {
+                    '0%': { transform: 'translateY(10px)', opacity: '0' },
+                    '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideDown: {
+                    '0%': { transform: 'translateY(-10px)', opacity: '0' },
+                    '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                scaleIn: {
+                    '0%': { transform: 'scale(0.9)', opacity: '0' },
+                    '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                glow: {
+                    '0%': { boxShadow: '0 0 5px rgba(66, 133, 244, 0.5), 0 0 10px rgba(66, 133, 244, 0.3)' },
+                    '100%': { boxShadow: '0 0 10px rgba(66, 133, 244, 0.8), 0 0 20px rgba(66, 133, 244, 0.5)' },
+                },
+            },
+            backdropBlur: {
+                xs: '2px',
+            },
+            boxShadow: {
+                'meet': '0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 4px 8px 3px rgba(0, 0, 0, 0.15)',
+                'meet-lg': '0 2px 6px 2px rgba(0, 0, 0, 0.2), 0 8px 16px 8px rgba(0, 0, 0, 0.1)',
+                'glow-blue': '0 0 20px rgba(66, 133, 244, 0.5)',
+                'glow-green': '0 0 20px rgba(52, 168, 83, 0.5)',
+                'glow-red': '0 0 20px rgba(234, 67, 53, 0.5)',
+            },
+        },
+    },
+    plugins: [],
+}

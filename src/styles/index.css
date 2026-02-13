@@ -1,0 +1,310 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply scroll-smooth antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  body {
+    @apply bg-meet-dark-900 text-white min-h-screen font-sans;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-meet-dark-800 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-meet-dark-600 rounded-full hover:bg-meet-dark-500 transition-colors;
+  }
+
+  /* Selection color */
+  ::selection {
+    @apply bg-meet-blue-500/30;
+  }
+}
+
+/* Component styles */
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    @apply bg-meet-dark-800/80 backdrop-blur-xl border border-meet-dark-700/50 rounded-2xl;
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply bg-meet-blue-600 hover:bg-meet-blue-700 text-white font-medium 
+           px-6 py-3 rounded-full transition-all duration-200
+           hover:shadow-glow-blue active:scale-95
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none;
+  }
+
+  .btn-secondary {
+    @apply bg-meet-dark-700 hover:bg-meet-dark-600 text-white font-medium 
+           px-6 py-3 rounded-full transition-all duration-200
+           active:scale-95
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-danger {
+    @apply bg-meet-red-600 hover:bg-meet-red-700 text-white font-medium 
+           px-6 py-3 rounded-full transition-all duration-200
+           hover:shadow-glow-red active:scale-95
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-success {
+    @apply bg-meet-green-600 hover:bg-meet-green-700 text-white font-medium 
+           px-6 py-3 rounded-full transition-all duration-200
+           hover:shadow-glow-green active:scale-95
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Control button (circular) */
+  .control-btn {
+    @apply w-14 h-14 rounded-full flex items-center justify-center
+           transition-all duration-200 active:scale-90;
+  }
+
+  .control-btn-default {
+    @apply control-btn bg-meet-dark-700 hover:bg-meet-dark-600 text-white;
+  }
+
+  .control-btn-active {
+    @apply control-btn bg-meet-dark-600 text-white ring-2 ring-meet-blue-500;
+  }
+
+  .control-btn-danger {
+    @apply control-btn bg-meet-red-600 hover:bg-meet-red-700 text-white;
+  }
+
+  .control-btn-muted {
+    @apply control-btn bg-meet-red-600/90 hover:bg-meet-red-700 text-white;
+  }
+
+  /* Input styles */
+  .input-primary {
+    @apply w-full px-4 py-3 bg-meet-dark-800 border border-meet-dark-600
+           rounded-xl text-white placeholder-meet-dark-400
+           focus:outline-none focus:ring-2 focus:ring-meet-blue-500 focus:border-transparent
+           transition-all duration-200;
+  }
+
+  /* Video tile */
+  .video-tile {
+    @apply relative bg-meet-dark-800 rounded-xl overflow-hidden
+           border border-meet-dark-700/50 shadow-meet
+           transition-all duration-300;
+  }
+
+  .video-tile:hover {
+    @apply border-meet-dark-600 shadow-meet-lg;
+  }
+
+  .video-tile video {
+    @apply w-full h-full object-cover;
+  }
+
+  /* Name overlay */
+  .name-overlay {
+    @apply absolute bottom-2 left-2 px-3 py-1.5 
+           bg-meet-dark-900/80 backdrop-blur-sm rounded-lg
+           text-sm font-medium text-white
+           flex items-center gap-2;
+  }
+
+  /* Status indicators */
+  .status-indicator {
+    @apply w-3 h-3 rounded-full;
+  }
+
+  .status-online {
+    @apply status-indicator bg-meet-green-500 shadow-glow-green;
+  }
+
+  .status-muted {
+    @apply status-indicator bg-meet-red-500;
+  }
+
+  /* Tooltip */
+  .tooltip {
+    @apply absolute -top-10 left-1/2 -translate-x-1/2
+           px-3 py-1.5 bg-meet-dark-700 text-white text-sm font-medium
+           rounded-lg opacity-0 invisible
+           group-hover:opacity-100 group-hover:visible
+           transition-all duration-200 whitespace-nowrap
+           pointer-events-none z-50;
+  }
+
+  /* Floating panel */
+  .floating-panel {
+    @apply glass-card p-4 shadow-meet-lg;
+  }
+
+  /* Participant item */
+  .participant-item {
+    @apply flex items-center gap-3 p-3 rounded-xl
+           hover:bg-meet-dark-700/50 transition-colors cursor-pointer;
+  }
+
+  /* Avatar */
+  .avatar {
+    @apply w-10 h-10 rounded-full bg-gradient-to-br from-meet-blue-500 to-meet-blue-700
+           flex items-center justify-center text-white font-medium text-sm
+           shadow-meet;
+  }
+
+  .avatar-lg {
+    @apply w-20 h-20 rounded-full bg-gradient-to-br from-meet-blue-500 to-meet-blue-700
+           flex items-center justify-center text-white font-bold text-2xl
+           shadow-meet-lg;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-meet-blue-400 via-meet-green-400 to-meet-yellow-400
+           bg-clip-text text-transparent;
+  }
+
+  /* Loading spinner */
+  .spinner {
+    @apply w-8 h-8 border-4 border-meet-dark-600 border-t-meet-blue-500
+           rounded-full animate-spin;
+  }
+
+  /* Connecting animation */
+  .connecting-dots {
+    @apply flex gap-1;
+  }
+
+  .connecting-dots span {
+    @apply w-2 h-2 bg-meet-blue-500 rounded-full animate-bounce;
+  }
+
+  .connecting-dots span:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .connecting-dots span:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+}
+
+/* Utility styles */
+@layer utilities {
+  /* Grid layouts for video tiles */
+  .grid-video-1 {
+    @apply grid grid-cols-1;
+  }
+
+  .grid-video-2 {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+  }
+
+  .grid-video-3 {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+  }
+
+  .grid-video-4 {
+    @apply grid grid-cols-2 gap-4;
+  }
+
+  .grid-video-5, .grid-video-6 {
+    @apply grid grid-cols-2 lg:grid-cols-3 gap-3;
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-mesh {
+    background: 
+      radial-gradient(at 40% 20%, rgba(66, 133, 244, 0.1) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, rgba(52, 168, 83, 0.08) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, rgba(234, 67, 53, 0.05) 0px, transparent 50%),
+      radial-gradient(at 80% 50%, rgba(251, 188, 4, 0.08) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(66, 133, 244, 0.1) 0px, transparent 50%);
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Aspect ratio for video tiles */
+  .aspect-video-tile {
+    aspect-ratio: 16 / 9;
+  }
+
+  /* Text shadow */
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Backdrop filter support check */
+  @supports not (backdrop-filter: blur(1px)) {
+    .backdrop-blur-xl {
+      background-color: rgba(32, 33, 36, 0.95);
+    }
+  }
+}
+
+/* Animation for joining/leaving */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeSlideOut {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+}
+
+.animate-fade-slide-in {
+  animation: fadeSlideIn 0.3s ease-out forwards;
+}
+
+.animate-fade-slide-out {
+  animation: fadeSlideOut 0.3s ease-out forwards;
+}
+
+/* Pulse animation for speaking indicator */
+@keyframes speakingPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(52, 168, 83, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(52, 168, 83, 0);
+  }
+}
+
+.speaking {
+  animation: speakingPulse 1.5s ease-in-out infinite;
+  border-color: theme('colors.meet-green.500') !important;
+}
